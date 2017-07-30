@@ -1,0 +1,27 @@
+parameters:
+    # Guzzle
+    m12u.sdk.domoticz.client.class: GuzzleHttp\Client
+    # Clients
+    m12u.sdk.domoticz.proxy.device.class: M12U\Bundle\Sdk\DomoticzBundle\Client\Type\Device
+    m12u.sdk.domoticz.proxy.command.class: M12U\Bundle\Sdk\DomoticzBundle\Client\Type\Command
+
+services:
+    m12u.sdk.domoticz.client:
+        class: '%m12u.sdk.domoticz.client.class%'
+        arguments:
+            - {'base_uri' : '%m12u.sdk.domoticz.config.base_uri%'}
+
+    # Clients
+    m12u.sdk.domoticz.proxy.device:
+        class: '%m12u.sdk.domoticz.proxy.device.class%'
+        calls:
+            - ['setClient', ['@m12u.sdk.domoticz.client']]
+        tags:
+            - { name: m12u.sdk.domoticz.proxy, alias: 'device' }
+
+    m12u.sdk.domoticz.proxy.command:
+        class: '%m12u.sdk.domoticz.proxy.command.class%'
+        calls:
+            - ['setClient', ['@m12u.sdk.domoticz.client']]
+        tags:
+            - { name: m12u.sdk.domoticz.proxy, alias: 'command' }

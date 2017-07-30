@@ -1,0 +1,22 @@
+{
+  "name": "dodev34/sdk-domoticz-bundle",
+  "description": "PHP Domoticz API Bundle for symfony.",
+  "authors": [
+    {
+      "name": "Michel Dourneau #m12u",
+      "email": "contact@michel-dourneau.fr"
+    }
+  ],
+  "version": "1.0.0",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "M12U\\Bundle\\Sdk\\DomoticzBundle\\": ""
+    }
+  },
+  "require": {
+    "php": ">=5.3.0",
+    "guzzlehttp/guzzle": "^6.2"
+  }
+}
