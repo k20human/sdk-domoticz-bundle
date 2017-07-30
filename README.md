@@ -48,6 +48,7 @@ Make sure you have entered a username and password in your Domoticz application
 | command        | switchLight         |  |
 | command        | setColbrightnessValue    |  |
 | device         | getDevices            | Return list of device(s) |
+| device         | getDevice            | Retrieve status of specific device |
 
 exemple with log message command
 

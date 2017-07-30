@@ -20,4 +20,15 @@ class Device extends DomoticzClient
         $response = $this->request('GET', '/json.htm', ['query' => $query]);
         return (string) $response->getBody()->getContents();
     }
+
+    /**
+     * @param int $idx
+     * @return string
+     */
+    public function getDevice($idx)
+    {
+        $query = array_merge(['type' => 'devices'], ['idx' => $idx]);
+        $response = $this->request('GET', '/json.htm', ['query' => $query]);
+        return (string) $response->getBody()->getContents();
+    }
 }
